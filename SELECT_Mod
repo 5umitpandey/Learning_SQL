@@ -1,2 +1,0 @@
-select name, GDP/population as GDPP from world
-where population > 200000000
