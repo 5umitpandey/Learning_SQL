@@ -11,3 +11,10 @@ FROM Boxoffice
 SELECT Distinct Building_name, Role FROM Buildings
 LEFT JOIN Employees
     ON Building_name = Building;
+
+
+--Find the names of the buildings that hold no employees 
+SELECT Building_name FROM Buildings
+LEFT JOIN Employees
+    ON Building_name = Building
+WHERE Role is NULL;
