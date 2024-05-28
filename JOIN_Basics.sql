@@ -18,3 +18,10 @@ SELECT Building_name FROM Buildings
 LEFT JOIN Employees
     ON Building_name = Building
 WHERE Role is NULL;
+
+--https://sqlbolt.com/lesson/select_queries_with_expressions
+--List all movies and their combined sales in millions of dollars
+SELECT Title, (Domestic_sales + International_sales)/1000000 AS Total_Sales
+FROM Boxoffice
+INNER JOIN Movies
+  ON Boxoffice.movie_id = Movies.id;
