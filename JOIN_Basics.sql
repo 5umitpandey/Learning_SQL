@@ -25,3 +25,10 @@ SELECT Title, (Domestic_sales + International_sales)/1000000 AS Total_Sales
 FROM Boxoffice
 INNER JOIN Movies
   ON Boxoffice.movie_id = Movies.id;
+
+--List all movies that were released on even number years
+SELECT title, Year
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+WHERE Year % 2 == 0
