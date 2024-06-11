@@ -12,3 +12,10 @@ LIMIT 5 OFFSET 5;
 SELECT city, longitude FROM north_american_cities
 WHERE longitude < -87.629798
 ORDER BY longitude ASC;
+
+
+--https://sqlbolt.com/lesson/select_queries_order_of_execution
+--Find the number of movies each director has directed
+SELECT Director, Count(Title) as NumberOfMovies
+FROM movies
+Group BY Director
