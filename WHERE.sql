@@ -22,3 +22,7 @@ WHERE (PRODUCTION_YEAR BETWEEN 1999 AND 2005)
   AND (BRAND IS NOT 'Volkswagen')
   AND (MODEL LIKE 'P%' OR MODEL LIKE 'F%')
   AND (PRICE IS NOT NULL);
+
+--https://learnsql.com/course/sql-queries/multiple-tables/multiple-tables/multiple-tables-condition/
+SELECT * FROM movie, director
+WHERE movie.director_id = director.id;
