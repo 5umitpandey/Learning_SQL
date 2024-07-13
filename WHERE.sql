@@ -15,3 +15,10 @@ WHERE Title LIKE "%WALL-%"
 SELECT vin FROM car
 WHERE (production_year < 1999 OR production_year > 2005)
 	AND (price < 4000 OR price > 10000)
+
+--https://learnsql.com/course/sql-queries/single-table/summary/practise/
+SELECT * FROM car
+WHERE (PRODUCTION_YEAR BETWEEN 1999 AND 2005)
+  AND (BRAND IS NOT 'Volkswagen')
+  AND (MODEL LIKE 'P%' OR MODEL LIKE 'F%')
+  AND (PRICE IS NOT NULL);
