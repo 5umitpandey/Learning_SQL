@@ -36,3 +36,11 @@ FROM movie
 JOIN director
 ON movie.director_id = director.id
 WHERE (production_year - birth_year) < 40
+
+
+--whose title contains a letter 'a' and which were filmed after 2000, OR whose director was born between 1945 and 1995.
+Select movie.id, movie.title, movie.production_year as produced_in, director.name, director.birth_year as born_in
+from movie
+JOIN director
+ON movie.director_id = director.id
+WHERE ((movie.title LIKE '%a%') AND (movie.production_year > 2000)) OR (director.birth_year between 1945 and 1995)
