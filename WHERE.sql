@@ -26,3 +26,13 @@ WHERE (PRODUCTION_YEAR BETWEEN 1999 AND 2005)
 --https://learnsql.com/course/sql-queries/multiple-tables/multiple-tables/multiple-tables-condition/
 SELECT * FROM movie, director
 WHERE movie.director_id = director.id;
+
+
+
+--Show the column birth_year as born_in. Select only those movies which were filmed when their director was younger than 40
+--(i.e. the difference between production_year and birth_year must be less than 40).
+SELECT movie.title, movie.production_year, director.name, director.birth_year as born_in
+FROM movie
+JOIN director
+ON movie.director_id = director.id
+WHERE (production_year - birth_year) < 40
