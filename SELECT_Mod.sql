@@ -26,3 +26,9 @@ FROM movies
     INNER JOIN boxoffice
         ON movies.id = boxoffice.movie_id
 GROUP BY director;
+
+
+-- https://learnsql.com/course/sql-queries/order-by-group-by/aggregation/count-distinct/
+-- Count how many different positions there are in the table employees. Name the column distinct_positions
+SELECT COUNT(DISTINCT position) AS distinct_positions
+FROM employees
