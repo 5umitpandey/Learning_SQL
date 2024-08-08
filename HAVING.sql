@@ -14,3 +14,10 @@ FROM EMPLOYEES
 WHERE YEAR = 2012
 GROUP BY DEPARTMENT
 HAVING AVG(SALARY) > 3000
+
+--https://learnsql.com/course/sql-queries/order-by-group-by/having/order-groups/
+--Sort the employees according to their summary salaries. Highest values should appear first. Show the last name, the first name, and the sum.
+SELECT last_name, first_name, SUM(salary)
+FROM employees
+GROUP BY last_name, first_name
+ORDER BY SUM(salary) DESC
