@@ -1,6 +1,5 @@
 --Doesn't make any sense here but try to understand the concept
 --https://sqlbolt.com/lesson/dropping_tables
-
 SELECT *
 FROM Boxoffice
 WHERE Rating > 
@@ -21,3 +20,12 @@ FROM mytable
 WHERE column
     IN/NOT IN (SELECT another_column
                FROM another_table);
+
+
+
+--https://learnsql.com/course/sql-queries/subqueries/simple-subqueries/subqueries/
+--Show all information about all cities which have the same area as Paris.
+SELECT * FROM City
+  WHERE Area = (
+  SELECT Area FROM City
+		WHERE Name = 'Paris');
