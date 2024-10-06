@@ -29,3 +29,11 @@ SELECT * FROM City
   WHERE Area = (
   SELECT Area FROM City
 		WHERE Name = 'Paris');
+
+
+-- https://learnsql.com/course/sql-queries/subqueries/simple-subqueries/subqueries-with-comparison/
+-- Find the names of all cities which have a population lower than Madrid.
+SELECT Name FROM City
+WHERE Population < (
+  SELECT Population FROM City
+  	WHERE Name = 'Madrid');
