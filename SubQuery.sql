@@ -37,3 +37,12 @@ SELECT Name FROM City
 WHERE Population < (
   SELECT Population FROM City
   	WHERE Name = 'Madrid');
+
+--Find all information about trips whose price is higher than the average.
+SELECT * FROM Trip
+WHERE Price > (
+  SELECT AVG(Price) FROM Trip);
+
+--Find all information about hiking trips with difficulty 1, 2, or 3.
+SELECT * FROM Hiking_Trip
+WHERE Difficulty IN (1, 2, 3);
