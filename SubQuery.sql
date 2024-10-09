@@ -46,3 +46,9 @@ WHERE Price > (
 --Find all information about hiking trips with difficulty 1, 2, or 3.
 SELECT * FROM Hiking_Trip
 WHERE Difficulty IN (1, 2, 3);
+
+--Find all information about all trips in cities whose area is greater than 100.
+SELECT * FROM Trip
+  WHERE City_Id IN ( 
+  SELECT Id FROM City
+		WHERE Area > 100);
