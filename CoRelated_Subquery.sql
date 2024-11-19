@@ -17,3 +17,12 @@ WHERE rating > (
   FROM city average_city
   WHERE average_city.country_id = main_city.country_id
 );
+
+--Show all information about all trips to cities where the ratio of city area to trip duration (in days) is greater than 700.
+SELECT *
+FROM Trip
+WHERE City_id IN (
+  SELECT id 
+  FROM City
+  WHERE City.Area / Trip.Days > 700 
+);
