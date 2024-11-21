@@ -18,11 +18,21 @@ WHERE rating > (
   WHERE average_city.country_id = main_city.country_id
 );
 
---Show all information about all trips to cities where the ratio of city area to trip duration (in days) is greater than 700.
+--Show all information about all trips to cities where the ratio of city area to trip duration (in days) is greater than 700. (IN Operator)
 SELECT *
 FROM Trip
 WHERE City_id IN (
   SELECT id 
   FROM City
   WHERE City.Area / Trip.Days > 700 
+);
+
+--https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/exists/
+--Select all countries where there is at least one mountain. (EXISTS Operator)
+SELECT *
+FROM Country
+WHERE EXISTS (
+  SELECT *
+  FROM Mountain
+  WHERE Mountain.Id = Country_Id
 );
