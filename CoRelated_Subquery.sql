@@ -36,3 +36,13 @@ WHERE EXISTS (
   FROM Mountain
   WHERE Mountain.Id = Country_Id
 );
+
+--https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/not-exists/
+--Select all mountains with no hiking trips to them.
+SELECT *
+FROM Mountain
+WHERE NOT EXISTS (
+  SELECT *
+  FROM Hiking_Trip
+  WHERE Mountain_Id = Mountain.Id
+);
