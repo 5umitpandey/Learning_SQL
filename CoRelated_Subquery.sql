@@ -46,3 +46,15 @@ WHERE NOT EXISTS (
   FROM Hiking_Trip
   WHERE Mountain_Id = Mountain.Id
 );
+
+
+
+--https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/all-subquery/
+--Select the hiking trip with the longest distance (column length) for every mountain.
+--ALL
+SELECT *
+FROM hiking_trip main_hiking_trip
+WHERE length >= ALL (
+  SELECT length
+  FROM hiking_trip sub_hiking_trip
+  WHERE main_hiking_trip.mountain_id = sub_hiking_trip.mountain_id);
