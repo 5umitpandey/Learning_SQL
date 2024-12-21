@@ -19,6 +19,7 @@ WHERE rating > (
 );
 
 --Show all information about all trips to cities where the ratio of city area to trip duration (in days) is greater than 700. (IN Operator)
+--IN
 SELECT *
 FROM Trip
 WHERE City_id IN (
@@ -29,6 +30,7 @@ WHERE City_id IN (
 
 --https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/exists/
 --Select all countries where there is at least one mountain. (EXISTS Operator)
+--EXISTS
 SELECT *
 FROM Country
 WHERE EXISTS (
@@ -39,6 +41,7 @@ WHERE EXISTS (
 
 --https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/not-exists/
 --Select all mountains with no hiking trips to them.
+--NOT EXISTS
 SELECT *
 FROM Mountain
 WHERE NOT EXISTS (
@@ -46,7 +49,6 @@ WHERE NOT EXISTS (
   FROM Hiking_Trip
   WHERE Mountain_Id = Mountain.Id
 );
-
 
 
 --https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/all-subquery/
@@ -58,3 +60,14 @@ WHERE length >= ALL (
   SELECT length
   FROM hiking_trip sub_hiking_trip
   WHERE main_hiking_trip.mountain_id = sub_hiking_trip.mountain_id);
+
+
+
+--https://learnsql.com/course/sql-queries/subqueries/correlated-subqueries/any-subquery/
+--ANY
+SELECT *
+FROM trip
+WHERE days < ANY (
+  SELECT days FROM hiking_trip
+  WHERE trip.price = hiking_trip.price
+);
